@@ -21,6 +21,8 @@
     <ProjectReference Include="..\hamiltoncourtfx.emporos.itinventory.client\hamiltoncourtfx.emporos.itinventory.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\HamiltonCourtFX.Emporos.ITInventory.Common\HamiltonCourtFX.Emporos.ITInventory.Common.csproj" />
+    <ProjectReference Include="..\HamiltonCourtFX.Emporos.ITInventory.Infrastructure\HamiltonCourtFX.Emporos.ITInventory.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

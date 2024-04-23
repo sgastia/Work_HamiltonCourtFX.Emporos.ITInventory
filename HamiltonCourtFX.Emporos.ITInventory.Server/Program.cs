@@ -1,4 +1,7 @@
 
+using HamiltonCourtFX.Emporos.ITInventory.Common.Interfaces;
+using HamiltonCourtFX.Emporos.ITInventory.Infrastructure;
+
 namespace HamiltonCourtFX.Emporos.ITInventory.Server
 {
     public class Program
@@ -8,6 +11,8 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Server
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddScoped<IRepository, ITInventoryRepository>();
+            builder.Services.AddScoped<IContext, ITInventoryContext>();
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

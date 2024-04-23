@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HamiltonCourtFX.Emporos.ITInventory.Server", "HamiltonCourtFX.Emporos.ITInventory.Server\HamiltonCourtFX.Emporos.ITInventory.Server.csproj", "{AD39F6AD-6110-407C-8B0E-847FC70F1272}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HamiltonCourtFX.Emporos.ITInventory.Server", "HamiltonCourtFX.Emporos.ITInventory.Server\HamiltonCourtFX.Emporos.ITInventory.Server.csproj", "{AD39F6AD-6110-407C-8B0E-847FC70F1272}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "hamiltoncourtfx.emporos.itinventory.client", "hamiltoncourtfx.emporos.itinventory.client\hamiltoncourtfx.emporos.itinventory.client.esproj", "{BC2C9B4D-E4B3-4054-B0F4-3FB4449B35AC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HamiltonCourtFX.Emporos.ITInventory.Infrastructure", "HamiltonCourtFX.Emporos.ITInventory.Infrastructure\HamiltonCourtFX.Emporos.ITInventory.Infrastructure.csproj", "{627F7E19-CBBD-404C-990E-1D83F1AE6DF0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HamiltonCourtFX.Emporos.ITInventory.Common", "HamiltonCourtFX.Emporos.ITInventory.Common\HamiltonCourtFX.Emporos.ITInventory.Common.csproj", "{3F95FBB7-21E4-43D6-B1E8-7FD3B18DC40D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +27,14 @@ Global
 		{BC2C9B4D-E4B3-4054-B0F4-3FB4449B35AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC2C9B4D-E4B3-4054-B0F4-3FB4449B35AC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BC2C9B4D-E4B3-4054-B0F4-3FB4449B35AC}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{627F7E19-CBBD-404C-990E-1D83F1AE6DF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{627F7E19-CBBD-404C-990E-1D83F1AE6DF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{627F7E19-CBBD-404C-990E-1D83F1AE6DF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{627F7E19-CBBD-404C-990E-1D83F1AE6DF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F95FBB7-21E4-43D6-B1E8-7FD3B18DC40D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F95FBB7-21E4-43D6-B1E8-7FD3B18DC40D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F95FBB7-21E4-43D6-B1E8-7FD3B18DC40D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F95FBB7-21E4-43D6-B1E8-7FD3B18DC40D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

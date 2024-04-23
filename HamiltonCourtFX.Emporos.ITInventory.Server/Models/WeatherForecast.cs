@@ -1,4 +1,4 @@
-namespace HamiltonCourtFX.Emporos.ITInventory.Server
+namespace HamiltonCourtFX.Emporos.ITInventory.Server.Models
 {
     public class WeatherForecast
     {
