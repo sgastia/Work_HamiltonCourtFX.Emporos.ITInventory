@@ -10,9 +10,19 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Infrastructure
 {
     public class ITInventoryRepository : IRepository
     {
-        public ITInventoryRepository() 
-        { 
-        
+        private readonly IITInventoryContextFactory itContextFactory;
+
+        public ITInventoryRepository(IITInventoryContextFactory itContextFactory) 
+        {
+            this.itContextFactory = itContextFactory;
+        }
+
+        public void EnsureCreated()
+        {
+            using (IITInventoryContext context = itContextFactory.CreateDbContext())
+            {
+                context.EnsureCreated();
+            }
         }
 
         public IList<Device> GetAllDevices()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HamiltonCourtFX.Emporos.ITInventory.Common.Interfaces
 {
-    public interface IContext
+    public interface IGeneralOptions
     {
     }
 }
