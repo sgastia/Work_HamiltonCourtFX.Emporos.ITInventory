@@ -48,8 +48,61 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-
         }
+
+        public IList<Device> GetAllDevices()
+        {
+            return Devices.ToList();
+        }
+        public IList<Employee> GetAllEmployees()
+        {
+            return Employees.ToList();
+        }
+
+        public void Save(Device device)
+        {
+            Devices.Add(device);
+            SaveChanges();
+        }
+        public void Save(Employee employee)
+        {
+            Employees.Add(employee);
+            SaveChanges();
+        }
+        public Employee? GetEmployeeBy(int id)
+        {
+            return Employees.Where(e => e.Id == id).SingleOrDefault();
+        }
+        public Device? GetDeviceBy(int id)
+        {
+            return Devices.Where(e => e.Id == id).SingleOrDefault();
+        }
+        public void Update(int id, Device device)
+        {
+            Device oldDevice = Devices.Where(e => e.Id == id).Single();
+            oldDevice.Description = device.Description;
+            oldDevice.DeviceType = device.DeviceType;
+            SaveChanges();
+        }
+        public void Update(int id, Employee employee)
+        {
+            Employee oldEmployee = Employees.Where(e => e.Id == id).Single();
+            oldEmployee.Email = employee.Email;
+            oldEmployee.Name = employee.Name;
+            SaveChanges();
+        }
+        public void DeleteDevice(int id)
+        {
+            Device device = Devices.Where(e => e.Id == id).Single();
+            Devices.Remove(device);
+            SaveChanges();
+        }
+        public void DeleteEmployee(int id)
+        {
+            Employee employee = Employees.Where(e => e.Id == id).Single();
+            Employees.Remove(employee);
+            SaveChanges();
+        }
+
     }
 }

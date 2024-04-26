@@ -17,6 +17,22 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Infrastructure
             this.itContextFactory = itContextFactory;
         }
 
+        public void DeleteDevice(int id)
+        {
+            using (IITInventoryContext context = itContextFactory.CreateDbContext())
+            {
+                context.DeleteDevice(id);
+            }
+        }
+
+        public void DeleteEmployee(int id)
+        {
+            using (IITInventoryContext context = itContextFactory.CreateDbContext())
+            {
+                context.DeleteEmployee(id);
+            }
+        }
+
         public void EnsureCreated()
         {
             using (IITInventoryContext context = itContextFactory.CreateDbContext())
@@ -27,26 +43,66 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Infrastructure
 
         public IList<Device> GetAllDevices()
         {
-            var devices = new List<Device>();
-            devices.Add(new Device()
+            using (IITInventoryContext context = itContextFactory.CreateDbContext())
             {
-                Id = 1,
-                Description="Samsung S24",
-                DeviceType= Common.DeviceType.SmartPhone
-            });
-            return devices;
+                return context.GetAllDevices();
+            }
         }
 
         public IList<Employee> GetAllEmployees()
         {
-            var employees = new List<Employee>();
-            employees.Add(new Employee()
+            using (IITInventoryContext context = itContextFactory.CreateDbContext())
             {
-                Id = 1,
-                Name = "Sebastian",
-                Email = "sgastia@gmail.com"
-            });
-            return employees;
+                return context.GetAllEmployees();
+            }
+        }
+
+        public Device? GetDeviceBy(int id)
+        {
+            using (IITInventoryContext context = itContextFactory.CreateDbContext())
+            {
+                return context.GetDeviceBy(id);
+            }
+        }
+
+        public Employee? GetEmployeeBy(int id)
+        {
+            using (IITInventoryContext context = itContextFactory.CreateDbContext())
+            {
+                return context.GetEmployeeBy(id);
+            }
+        }
+
+        public void Save(Device device)
+        {
+            using (IITInventoryContext context = itContextFactory.CreateDbContext())
+            {
+                context.Save(device);
+            }
+        }
+
+        public void Save(Employee employee)
+        {
+            using (IITInventoryContext context = itContextFactory.CreateDbContext())
+            {
+                context.Save(employee);
+            }
+        }
+
+        public void Update(int id, Device device)
+        {
+            using (IITInventoryContext context = itContextFactory.CreateDbContext())
+            {
+                context.Update(id, device);
+            }
+        }
+
+        public void Update(int id, Employee employee)
+        {
+            using (IITInventoryContext context = itContextFactory.CreateDbContext())
+            {
+                context.Update(id, employee);
+            }
         }
     }
 }

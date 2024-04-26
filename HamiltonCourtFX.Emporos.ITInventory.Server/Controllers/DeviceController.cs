@@ -27,27 +27,31 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Server.Controllers
 
         // GET api/<DeviceController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult<Device> Get(int id)
         {
-            return "value";
+            Device device = repository.GetDeviceBy(id);
+            return Ok(device);
         }
 
         // POST api/<DeviceController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Device device)
         {
+            repository.Save(device);
         }
 
         // PUT api/<DeviceController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Device device)
         {
+            repository.Update(id, device);
         }
 
         // DELETE api/<DeviceController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            repository.DeleteDevice(id);
         }
     }
 }

@@ -27,27 +27,31 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Server.Controllers
 
         // GET api/<EmployeeController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public ActionResult<Employee> Get(int id)
         {
-            return "value";
+            Employee employee = repository.GetEmployeeBy(id);
+            return Ok(employee);
         }
 
         // POST api/<EmployeeController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Employee employee)
         {
+            repository.Save(employee);
         }
 
         // PUT api/<EmployeeController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Employee employee)
         {
+            repository.Update(id, employee);
         }
 
         // DELETE api/<EmployeeController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            repository.DeleteEmployee(id);
         }
     }
 }
