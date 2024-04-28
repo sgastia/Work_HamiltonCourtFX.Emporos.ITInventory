@@ -19,7 +19,7 @@ export const appRoutes: Routes = [
     component: DetailEmployeeComponent,
   },
   {
-    path: 'detail-device',
+    path: 'detail-device/:id',
     component: DetailDeviceComponent,
   },
 ];

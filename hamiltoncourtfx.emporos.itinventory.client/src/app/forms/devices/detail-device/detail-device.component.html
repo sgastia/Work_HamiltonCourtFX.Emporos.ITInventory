@@ -1,1 +1,8 @@
-<p>detail-device works!</p>
+<h2>Devices</h2>
+<div *ngIf="deviceItem$ | async as deviceItem">
+  <h3>{{ deviceItem.deviceType }}</h3>
+  <p>Description: {{ deviceItem.description }}</p>
+  <label for="device-description">Description: </label>
+  <input type="text" id="device-description" [(ngModel)]="deviceItem.description" placeholder="description" />
+  <button type="button" (click)="gotoList()">Back to list</button>
+</div>

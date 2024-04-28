@@ -33,4 +33,8 @@ export class DeviceService {
   getAllDevices(): Observable<DeviceInterface[]> {
     return of(this.devicesMock);
   }
+
+  getDeviceById(id: number | string): Observable<DeviceInterface> {
+    return of(this.devicesMock.find(d => d.id == id)!);
+  }
 }

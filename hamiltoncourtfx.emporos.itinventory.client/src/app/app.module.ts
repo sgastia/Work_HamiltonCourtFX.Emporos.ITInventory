@@ -15,8 +15,6 @@ import { appRoutes } from './app-routing.module';
 @NgModule({
   declarations: [
     AppComponent,
-
-    DetailDeviceComponent,
     ListEmployeesComponent,
     DetailEmployeeComponent,
   ],
@@ -27,6 +25,7 @@ import { appRoutes } from './app-routing.module';
     SharedModule,
     RouterOutlet,
     ListDevicesComponent,
+    DetailDeviceComponent,
   ],
   providers: [
     provideRouter(appRoutes)
