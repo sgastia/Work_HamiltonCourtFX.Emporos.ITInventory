@@ -10,21 +10,23 @@ import { DetailDeviceComponent } from './forms/devices/detail-device/detail-devi
 import { DetailEmployeeComponent } from './forms/employees/detail-employee/detail-employee.component';
 import { ListEmployeesComponent } from './forms/employees/list-employees/list-employees.component';
 import { RouterOutlet, provideRouter } from '@angular/router';
-import { appRoutes } from './app-routing.module'
+import { appRoutes } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListDevicesComponent,
+
     DetailDeviceComponent,
     ListEmployeesComponent,
     DetailEmployeeComponent,
   ],
   imports: [
-    BrowserModule, HttpClientModule,
+    BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     SharedModule,
-    RouterOutlet
+    RouterOutlet,
+    ListDevicesComponent,
   ],
   providers: [
     provideRouter(appRoutes)

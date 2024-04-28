@@ -1,12 +1,16 @@
 <section id="app-comp">
-  <header>
-    <app-header></app-header>
-  </header>
-  <main>
-    <div class="mat-typography mat-app-background">
-      <app-menu></app-menu>
-      <router-outlet></router-outlet>
-    </div>
-  </main>
+  <div class="wrapper">
+    <header>
+      <app-header></app-header>
+    </header>
+    <main>
+      <div class="mat-typography mat-app-background">
+        <app-menu></app-menu>
 
+      </div>
+      <section class="content">
+        <router-outlet></router-outlet>
+      </section>
+    </main>
+  </div>
 </section>

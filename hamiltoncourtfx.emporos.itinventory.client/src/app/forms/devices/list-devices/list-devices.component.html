@@ -1,1 +1,15 @@
-<p>list-devices works!</p>
+<section>
+  <form>
+    <input type="text" placeholder="Filter by description" #filter>
+    <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
+  </form>
+</section>
+<section>
+  <ul class="devices">
+    <li *ngFor="let deviceItem of devicesList$ | async" [class.selected]="deviceItem.id === selectedId">
+      <a [routerLink]="['/detail-device', deviceItem.id]">
+        <span class="deviceType">{{ deviceItem.deviceType }}</span>{{ deviceItem.description }}
+      </a>
+    </li>
+  </ul>
+</section>
