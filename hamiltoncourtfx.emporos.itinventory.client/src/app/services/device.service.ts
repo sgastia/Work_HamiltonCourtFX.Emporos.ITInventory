@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { DeviceInterface } from '../interfaces/device.interface';
 import { Observable, of } from 'rxjs';
+import { DeviceType } from '../models/deviceType';
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +13,16 @@ export class DeviceService {
   devicesMock: DeviceInterface[] = [
     {
       id: 1,
-      deviceTypeId: 1,
       deviceType: "smartphone",
       description: "asdf"
     },
     {
       id: 2,
-      deviceTypeId: 1,
       deviceType: "smartphone",
       description: "qwer"
     },
     {
       id: 3,
-      deviceTypeId: 2,
       deviceType: "tablet",
       description: "zcxv"
     },
@@ -36,5 +34,9 @@ export class DeviceService {
 
   getDeviceById(id: number | string): Observable<DeviceInterface> {
     return of(this.devicesMock.find(d => d.id == id)!);
+  }
+
+  save(device: DeviceInterface) {
+    this.devicesMock.push(device);
   }
 }

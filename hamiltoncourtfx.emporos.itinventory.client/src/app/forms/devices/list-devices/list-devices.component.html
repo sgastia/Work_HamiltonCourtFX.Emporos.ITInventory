@@ -2,7 +2,9 @@
   <form>
     <input type="text" placeholder="Filter by description" #filter>
     <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
+    <button class="" type="button" [routerLink]="['/add-device']">New device</button>
   </form>
+
 </section>
 <section>
   <ul class="devices">
