@@ -5,7 +5,7 @@ const PROXY_CONFIG = [
     ],
     target: "https://localhost:7295",
     secure: false,
-    
+    "pathRewrite": { "^/api": "" }
   }
 ]
 

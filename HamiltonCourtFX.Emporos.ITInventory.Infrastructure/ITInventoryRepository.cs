@@ -73,19 +73,21 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Infrastructure
             }
         }
 
-        public void Save(Device device)
+        public Device Save(Device device)
         {
             using (IITInventoryContext context = itContextFactory.CreateDbContext())
             {
                 context.Save(device);
+                return device;
             }
         }
 
-        public void Save(Employee employee)
+        public Employee Save(Employee employee)
         {
             using (IITInventoryContext context = itContextFactory.CreateDbContext())
             {
                 context.Save(employee);
+                return employee;
             }
         }
 

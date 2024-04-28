@@ -35,9 +35,10 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Server.Controllers
 
         // POST api/<DeviceController>
         [HttpPost]
-        public void Post([FromBody] Device device)
+        public ActionResult<Device> Post([FromBody] Device device)
         {
-            repository.Save(device);
+            Device newDevice = repository.Save(device);
+            return Ok(newDevice);
         }
 
         // PUT api/<DeviceController>/5

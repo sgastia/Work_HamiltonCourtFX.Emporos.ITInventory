@@ -13,8 +13,8 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Common.Interfaces
         IList<Employee> GetAllEmployees();
 
         void EnsureCreated();
-        void Save(Device device);
-        void Save(Employee employee);
+        Device Save(Device device);
+        Employee Save(Employee employee);
         Employee? GetEmployeeBy(int id);
         Device? GetDeviceBy(int id);
         void Update(int id, Device device);

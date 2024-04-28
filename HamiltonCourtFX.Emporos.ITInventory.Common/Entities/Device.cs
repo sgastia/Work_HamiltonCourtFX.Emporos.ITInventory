@@ -15,7 +15,7 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Common.Entities
         public int Id { get; set; }
         
         [Required]
-        public DeviceType DeviceType { get; set; }
+        public string DeviceType { get; set; }
 
         public string Description { get; set; }
     }

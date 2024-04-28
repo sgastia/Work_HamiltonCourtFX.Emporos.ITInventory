@@ -26,4 +26,8 @@
     <ProjectReference Include="..\HamiltonCourtFX.Emporos.ITInventory.Infrastructure\HamiltonCourtFX.Emporos.ITInventory.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>

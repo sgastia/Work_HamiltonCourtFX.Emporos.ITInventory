@@ -41,7 +41,9 @@ export class AddDeviceComponent implements OnInit {
       deviceType,
       descrption
     );
+    console.log("Saving new device: " + deviceType + ", " + descrption);
     this.deviceService.save(device);
+    console.log("New device saved");
 
     //option 1
     //deviceForm.reset()
