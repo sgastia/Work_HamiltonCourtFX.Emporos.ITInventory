@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Observable, catchError, map } from 'rxjs';
 import { EmployeeInterface } from '../interfaces/employee.interface';
 
 @Injectable({
@@ -30,6 +30,10 @@ export class EmployeeService implements OnInit {
       .pipe(
         map((data: EmployeeInterface) => {
           return data;
+        }),
+        catchError((err, caught) => {
+          console.error("It failed to retrieve employee id=" + id, err);
+          throw err;
         })
       );
   }

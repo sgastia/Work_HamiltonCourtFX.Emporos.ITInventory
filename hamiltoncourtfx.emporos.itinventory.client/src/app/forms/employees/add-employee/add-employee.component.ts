@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { EmployeeModel } from '../../../models/employee';
 import { Router, RouterModule } from '@angular/router';
 import { EmployeeService } from '../../../services/employee.service';
+import { DeviceInterface } from '../../../interfaces/device.interface';
 
 
 @Component({
@@ -18,7 +19,7 @@ import { EmployeeService } from '../../../services/employee.service';
   ]
 })
 export class AddEmployeeComponent {
-  model = new EmployeeModel(0, "", "");
+  model = new EmployeeModel(0, "", "", []);
   submitted = false;
 
   onSubmit() { this.submitted = true; }
@@ -35,10 +36,12 @@ export class AddEmployeeComponent {
     const id = 0;
     const name = this.model.name;
     const email = this.model.email;
+    const devices = new Array<DeviceInterface>;
     const employee = new EmployeeModel(
       id,
       name,
-      email
+      email,
+      devices
     );
     console.log("Saving new Employee: " + name + ", " + email);
     this.employeeService.save(employee);
