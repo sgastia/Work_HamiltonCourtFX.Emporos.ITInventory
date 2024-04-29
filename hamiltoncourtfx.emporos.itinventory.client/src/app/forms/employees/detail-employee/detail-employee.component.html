@@ -1,1 +1,8 @@
-<p>detail-employee works!</p>
+<h2>Employee</h2>
+<div *ngIf="employeeItem$ | async as employeeItem">
+  <h3>{{ employeeItem.name }}</h3>
+  <p>E-Mail: {{ employeeItem.email }}</p>
+  <label for="employee-email">E-Mail: </label>
+  <input type="text" id="employee-email" [(ngModel)]="employeeItem.email" placeholder="email" />
+  <button type="button" (click)="gotoList()">Back to list</button>
+</div>

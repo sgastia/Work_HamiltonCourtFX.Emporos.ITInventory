@@ -1,1 +1,17 @@
-<p>list-employees works!</p>
+<section>
+  <form>
+    <input type="text" placeholder="Filter by name" #filter>
+    <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
+    <button class="" type="button" [routerLink]="['/add-employee']">New Employee</button>
+  </form>
+
+</section>
+<section>
+  <ul class="employees">
+    <li *ngFor="let employeeItem of employeesList$ | async" [class.selected]="employeeItem.id === selectedId">
+      <a [routerLink]="['/detail-employee', employeeItem.id]">
+        <span class="employeeType">{{ employeeItem.name }}</span>{{ employeeItem.email }}
+      </a>
+    </li>
+  </ul>
+</section>

@@ -12,12 +12,12 @@ import { ListEmployeesComponent } from './forms/employees/list-employees/list-em
 import { RouterOutlet, provideRouter } from '@angular/router';
 import { appRoutes } from './app-routing.module';
 import { AddDeviceComponent } from './forms/devices/add-device/add-device.component';
+import { AddEmployeeComponent } from './forms/employees/add-employee/add-employee.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListEmployeesComponent,
-    DetailEmployeeComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -28,6 +28,9 @@ import { AddDeviceComponent } from './forms/devices/add-device/add-device.compon
     ListDevicesComponent,
     DetailDeviceComponent,
     AddDeviceComponent,
+    ListEmployeesComponent,
+    DetailEmployeeComponent,
+    AddEmployeeComponent,
   ],
   providers: [
     provideRouter(appRoutes)
