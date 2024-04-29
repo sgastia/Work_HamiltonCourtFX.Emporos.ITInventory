@@ -1,11 +1,10 @@
 const PROXY_CONFIG = [
   {
     context: [
-      "/api",
+      "/api/*",
     ],
     target: "https://localhost:7295",
     secure: false,
-    "pathRewrite": { "^/api": "" }
   }
 ]
 
