@@ -1,8 +1,20 @@
-<h2>Employee</h2>
+<h3>Employee detail</h3>
 <div *ngIf="employeeItem$ | async as employeeItem">
   <h3>{{ employeeItem.name }}</h3>
   <p>E-Mail: {{ employeeItem.email }}</p>
+  <!--
   <label for="employee-email">E-Mail: </label>
   <input type="text" id="employee-email" [(ngModel)]="employeeItem.email" placeholder="email" />
+  -->
+  <section>
+    <ul>
+      <li *ngFor="let deviceItem of devicesList$ | async">
+        <input type="checkbox" id="deviceCheck"  />
+        <a [routerLink]="['/detail-device', deviceItem.id]">
+          <span>{{ deviceItem.deviceType }}</span>&nbsp;-&nbsp;<span>{{ deviceItem.description }}</span>
+        </a>
+      </li>
+    </ul>
+  </section>
   <button type="button" (click)="gotoList()">Back to list</button>
 </div>
