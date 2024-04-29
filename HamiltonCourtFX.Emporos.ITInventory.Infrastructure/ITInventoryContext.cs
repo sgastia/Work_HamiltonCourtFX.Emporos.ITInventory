@@ -56,7 +56,9 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Infrastructure
         }
         public IList<Employee> GetAllEmployees()
         {
-            return Employees.ToList();
+            return Employees
+                .Include(nameof(Employee.Devices))
+                .ToList();
         }
 
         public void Save(Device device)
@@ -71,7 +73,9 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Infrastructure
         }
         public Employee? GetEmployeeBy(int id)
         {
-            return Employees.Where(e => e.Id == id).SingleOrDefault();
+            return Employees.Where(e => e.Id == id)
+                .Include(nameof(Employee.Devices))
+                .SingleOrDefault();
         }
         public Device? GetDeviceBy(int id)
         {

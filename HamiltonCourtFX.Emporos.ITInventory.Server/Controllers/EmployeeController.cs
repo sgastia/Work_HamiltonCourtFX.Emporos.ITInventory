@@ -29,7 +29,7 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Server.Controllers
         [HttpGet("{id}")]
         public ActionResult<Employee> Get(int id)
         {
-            Employee employee = repository.GetEmployeeBy(id);
+            Employee? employee = repository.GetEmployeeBy(id);
             return Ok(employee);
         }
 
