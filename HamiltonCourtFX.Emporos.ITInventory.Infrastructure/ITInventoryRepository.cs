@@ -106,5 +106,37 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Infrastructure
                 context.Update(id, employee);
             }
         }
+
+        public void RelateDevice(int employeeId, int deviceId)
+        {
+            using (IITInventoryContext context = itContextFactory.CreateDbContext())
+            {
+                Device? device = context.GetDeviceBy(deviceId);
+                if (device == null)
+                {
+                    throw new ArgumentException($"Device for id={deviceId} doesn't exists");
+                }
+
+                if(device.EmployeeId == null)
+                {
+                    context.RelateToEmployee(device, employeeId);
+                    return;
+                }
+
+                if(device.EmployeeId.Value ==  employeeId)
+                {
+                    context.RelateToEmployee(device, null);
+                    return;
+                }
+
+                if(device.EmployeeId.Value != employeeId)
+                {
+                    context.RelateToEmployee(device, employeeId);
+                    return;
+                }
+
+                throw new InvalidOperationException($"It can't relate deviceId={deviceId} with employeeId={employeeId}");
+            }
+        }
     }
 }

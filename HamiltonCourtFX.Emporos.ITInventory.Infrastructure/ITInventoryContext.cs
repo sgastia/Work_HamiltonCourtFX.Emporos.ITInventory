@@ -16,7 +16,7 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Infrastructure
     public class ITInventoryContext : DbContext, IITInventoryContext
     {
         public const string ConnStringName = "itinventorydb";
-        
+
         private readonly IConfiguration configuration;
 
         public ITInventoryContext(IConfiguration configuration, DbContextOptions options) : base(options)
@@ -48,6 +48,11 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Infrastructure
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Employee>()
+                .HasMany(e => e.Devices)
+                .WithOne(d => d.Employee)
+                .HasForeignKey(d => d.EmployeeId);
         }
 
         public IList<Device> GetAllDevices()
@@ -108,5 +113,10 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Infrastructure
             SaveChanges();
         }
 
+        public void RelateToEmployee(Device device, int? employeeId)
+        {
+            device.EmployeeId = employeeId;
+            SaveChanges();
+        }
     }
 }

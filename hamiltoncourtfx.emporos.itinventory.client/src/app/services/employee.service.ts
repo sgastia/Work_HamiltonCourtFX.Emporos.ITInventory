@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable, catchError, map } from 'rxjs';
 import { EmployeeInterface } from '../interfaces/employee.interface';
+import { ResponseMessage } from '../models/responseMessage';
+import { EmployeeDeviceRelationship } from '../models/employeeDeviceRelationship';
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +54,11 @@ export class EmployeeService implements OnInit {
           console.error("Error posting employee: " + error.message, error);
         }
       });
+  }
 
+  relate(employeeId: number, deviceId: number): Observable<ResponseMessage> {
+    const employeeDeviceRelationship = new EmployeeDeviceRelationship(employeeId, deviceId);
+    const responseMessage = this.http.post<ResponseMessage>('/api/employee/relatedevice?', employeeDeviceRelationship);
+    return responseMessage;
   }
 }

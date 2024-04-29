@@ -1,6 +1,8 @@
 ﻿using HamiltonCourtFX.Emporos.ITInventory.Common.Entities;
 using HamiltonCourtFX.Emporos.ITInventory.Common.Interfaces;
+using HamiltonCourtFX.Emporos.ITInventory.Server.Models;
 using Microsoft.AspNetCore.Mvc;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -53,5 +55,26 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Server.Controllers
         {
             repository.DeleteEmployee(id);
         }
+
+        [HttpPost]
+        [Route("relatedevice")]
+        public ActionResult<ResponseMessage> RelateDevice([FromBody]EmployeeDeviceRelationship employeeDeviceRelationship)
+        {
+            ResponseMessage responseMessage = new ResponseMessage();
+            try
+            {
+                repository.RelateDevice(employeeDeviceRelationship.EmployeeId, employeeDeviceRelationship.DeviceId);
+                responseMessage.IsOk = true;
+                responseMessage.Message = "Data modified";
+                return Ok(responseMessage);
+            }
+            catch (Exception ex)
+            {
+                responseMessage.IsOk = false;
+                responseMessage.Message = ex.Message;
+                return Ok(responseMessage);
+            }
+        }
+
     }
 }

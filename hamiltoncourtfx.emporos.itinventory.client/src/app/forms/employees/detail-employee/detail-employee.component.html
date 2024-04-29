@@ -9,7 +9,7 @@
   <section>
     <ul>
       <li *ngFor="let deviceItem of devicesList$ | async">
-        <input type="checkbox" id="deviceCheck"  />
+        <input type="checkbox" id="deviceCheck" [checked]="isInList(employeeItem.devices, deviceItem)" (change)="relateDevice(employeeItem, deviceItem)" />
         <a [routerLink]="['/detail-device', deviceItem.id]">
           <span>{{ deviceItem.deviceType }}</span>&nbsp;-&nbsp;<span>{{ deviceItem.description }}</span>
         </a>

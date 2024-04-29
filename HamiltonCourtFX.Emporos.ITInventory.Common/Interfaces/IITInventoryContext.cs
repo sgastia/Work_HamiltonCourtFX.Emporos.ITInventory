@@ -20,5 +20,6 @@ namespace HamiltonCourtFX.Emporos.ITInventory.Common.Interfaces
         void Update(int id, Employee employee);
         void DeleteDevice(int id);
         void DeleteEmployee(int id);
+        void RelateToEmployee(Device device, int? employeeId);
     }
 }
