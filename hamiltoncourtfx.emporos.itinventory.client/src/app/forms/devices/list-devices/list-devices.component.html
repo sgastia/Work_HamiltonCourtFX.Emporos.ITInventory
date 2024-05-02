@@ -7,11 +7,31 @@
 
 </section>
 <section>
-  <ul class="devices">
-    <li *ngFor="let deviceItem of devicesList$ | async" [class.selected]="deviceItem.id === selectedId">
-      <a [routerLink]="['/detail-device', deviceItem.id]">
-        <span class="deviceType">{{ deviceItem.deviceType }}</span>{{ deviceItem.description }}
-      </a>
-    </li>
-  </ul>
+  <table mat-table [dataSource]="devicesList$" class="mat-elevation-z8">
+
+    <!-- DeviceType Column -->
+    <ng-container matColumnDef="deviceType">
+      <th mat-header-cell *matHeaderCellDef> Device type </th>
+      <td mat-cell *matCellDef="let element"> {{element.deviceType}} </td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <!-- Edit column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> Edit </th>
+      <td mat-cell *matCellDef="let element">
+        <a [routerLink]="['/detail-device', element.id]">
+          <span>Edit</span>
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </section>

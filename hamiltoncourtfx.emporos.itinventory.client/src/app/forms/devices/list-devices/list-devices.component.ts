@@ -4,6 +4,7 @@ import { DeviceService } from '../../../services/device.service';
 import { Observable, switchMap } from 'rxjs';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-list-devices',
@@ -13,12 +14,13 @@ import { CommonModule } from '@angular/common';
   imports: [
     RouterModule,
     CommonModule,
+    MatTableModule,
   ]
 })
 export class ListDevicesComponent implements OnInit {
   devicesList$!: Observable<DeviceInterface[]>;
   selectedId = 0;
-
+  displayedColumns: string[] = ['deviceType', 'description', 'edit'];
   constructor(
     private devicesService: DeviceService,
     private route: ActivatedRoute) {
