@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DeviceInterface } from '../../../interfaces/device.interface';
 import { DeviceService } from '../../../services/device.service';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, filter, map, switchMap } from 'rxjs';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
@@ -19,6 +19,7 @@ import { MatTableModule } from '@angular/material/table';
 })
 export class ListDevicesComponent implements OnInit {
   devicesList$!: Observable<DeviceInterface[]>;
+  devicesListToShow$!: Observable<DeviceInterface[]>;
   selectedId = 0;
   displayedColumns: string[] = ['deviceType', 'description', 'edit'];
   constructor(
@@ -33,12 +34,20 @@ export class ListDevicesComponent implements OnInit {
         return this.devicesService.getAllDevices();
       })
     );
+    this.devicesListToShow$ = this.devicesList$;
   }
 
   filterResults(text: string) {
     if (!text) {
-      
+      this.devicesListToShow$ = this.devicesList$;
       return;
     }
+    this.devicesListToShow$ = this.devicesList$.pipe(
+      map(items => items.filter(item =>
+        item.description.toLowerCase().includes(text.toLowerCase()) ||
+        item.deviceType.toLowerCase().includes(text.toLowerCase()) 
+        )
+      ));
+    
   }
 }

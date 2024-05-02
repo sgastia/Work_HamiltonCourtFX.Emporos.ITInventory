@@ -1,13 +1,15 @@
+<h3>Device list</h3>
 <section>
   <form>
     <input type="text" placeholder="Filter by description" #filter>
     <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
+    <button class="primary" type="button" (click)="filterResults('')">Clear</button>
     <button class="" type="button" [routerLink]="['/add-device']">New device</button>
   </form>
 
 </section>
 <section>
-  <table mat-table [dataSource]="devicesList$" class="mat-elevation-z8">
+  <table mat-table [dataSource]="devicesListToShow$" class="mat-elevation-z8">
 
     <!-- DeviceType Column -->
     <ng-container matColumnDef="deviceType">
