@@ -1,8 +1,30 @@
-<h2>Devices</h2>
-<div *ngIf="deviceItem$ | async as deviceItem">
-  <h3>{{ deviceItem.deviceType }}</h3>
-  <p>Description: {{ deviceItem.description }}</p>
-  <label for="device-description">Description: </label>
-  <input type="text" id="device-description" [(ngModel)]="deviceItem.description" placeholder="description" />
+<section>
+  <h3>Device detail</h3>
+  <div *ngIf="deviceItem$ | async as deviceItem">
+    <div>
+      <label for="device-type">Device type:  </label>
+      <input type="text" id="device-type" [(ngModel)]="deviceItem.deviceType" placeholder="Device type" readonly />
+    </div>
+    <div>
+      <label for="device-description">Description:</label>
+      <input type="text" id="device-description" [(ngModel)]="deviceItem.description" placeholder="Description" readonly />
+    </div>
+    <!--
+    <div>
+      <mat-form-field>
+        <mat-label>Device type</mat-label>
+        <input matInput type="text" id="device-type" [(ngModel)]="deviceItem.deviceType" placeholder="Device type" readonly />
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input matInput type="text" id="device-description" [(ngModel)]="deviceItem.description" placeholder="Description" readonly />
+      </mat-form-field>
+    </div>
+      -->
+  </div>
+
+  <!--<button type="button" (click)="Update()">Update</button>-->
   <button type="button" (click)="gotoList()">Back to list</button>
-</div>
+</section>

@@ -18,7 +18,7 @@ h3 {
 
 body {
   padding: .5rem;
-  max-width: 1000px;
+  /*max-width: 1000px;*/
   margin: auto;
 }
 
@@ -28,7 +28,7 @@ body {
   }
 }
 
-body, input[text] {
+body {
   color: #333;
   font-family: Cambria, Georgia, serif;
 }
@@ -73,22 +73,17 @@ nav a {
   border-radius: 4px;
 }
 
-  nav a:hover {
-    color: white;
-    background-color: #42545C;
-  }
+nav a:hover {
+  color: white;
+  background-color: #42545C;
+}
 
-  nav a.active {
-    background-color: black;
-    color: white;
-  }
+nav a.active {
+  background-color: black;
+  color: white;
+}
 
 hr {
   margin: 1.5rem 0;
 }
 
-input[type="text"] {
-  box-sizing: border-box;
-  width: 100%;
-  padding: .5rem;
-}
