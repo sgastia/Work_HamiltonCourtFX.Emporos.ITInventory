@@ -46,8 +46,7 @@ export class EmployeeService implements OnInit {
     this.http.post<EmployeeInterface>('/api/employee', employee)
       .subscribe({
         next: data => {
-          newEmployee = data;
-          console.log("Data received: " + newEmployee.id);
+          console.log("Employee saved, data: " + data);
         },
         error: error => {
           errorMessage = error.message;

@@ -3,16 +3,36 @@
   <form>
     <input type="text" placeholder="Filter by name" #filter>
     <button class="primary" type="button" (click)="filterResults(filter.value)">Search</button>
+    <button class="primary" type="button" (click)="filterResults('')">Clear</button>
     <button class="" type="button" [routerLink]="['/add-employee']">New Employee</button>
   </form>
-
 </section>
 <section>
-  <ul class="employees">
-    <li *ngFor="let employeeItem of employeesList$ | async" [class.selected]="employeeItem.id === selectedId">
-      <a [routerLink]="['/detail-employee', employeeItem.id]">
-        <span class="employeeType">{{ employeeItem.name }}</span>{{ employeeItem.email }}
-      </a>
-    </li>
-  </ul>
+  <table mat-table [dataSource]="employeesListToShow$" class="mat-elevation-z8">
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> E-mail </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- Edit column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> Edit </th>
+      <td mat-cell *matCellDef="let element">
+        <a [routerLink]="['/detail-employee', element.id]">
+          <span>Edit</span>
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </section>
