@@ -1,11 +1,16 @@
 <h3>Employee detail</h3>
-<div *ngIf="employeeItem$ | async as employeeItem">
-  <h3>{{ employeeItem.name }}</h3>
-  <p>E-Mail: {{ employeeItem.email }}</p>
-  <!--
-  <label for="employee-email">E-Mail: </label>
-  <input type="text" id="employee-email" [(ngModel)]="employeeItem.email" placeholder="email" />
-  -->
+<div *ngIf="selectedEmployee$ | async as employeeItem">
+  <section>
+    <div>
+      <label for="device-type">Name:  </label>
+      <input type="text" id="employeeName" [formControl]="nameControl" placeholder="Employee name" />
+    </div>
+    <div>
+      <label for="device-description">Email:</label>
+      <input type="text" id="email" [formControl]="emailControl" placeholder="E-mail" />
+    </div>
+    <button type="button" (click)="update()">Update</button>
+  </section>
   <section>
     <ul>
       <li *ngFor="let deviceItem of devicesList$ | async">
@@ -16,5 +21,6 @@
       </li>
     </ul>
   </section>
+
   <button type="button" (click)="gotoList()">Back to list</button>
 </div>

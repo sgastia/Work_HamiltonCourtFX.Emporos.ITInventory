@@ -60,4 +60,20 @@ export class EmployeeService implements OnInit {
     const responseMessage = this.http.post<ResponseMessage>('/api/employee/relatedevice?', employeeDeviceRelationship);
     return responseMessage;
   }
+
+  updateEmployeeData(employeeId: number, employee: EmployeeInterface) {
+    let newDevice;
+    let errorMessage;
+    this.http.put<EmployeeInterface>('/api/Employee/' + employeeId, employee)
+      .subscribe({
+        next: data => {
+          newDevice = data;
+          console.log("Data received updated");
+        },
+        error: error => {
+          errorMessage = error.message;
+          console.error("Error posting device: " + error.message, error);
+        }
+      });
+  }
 }
