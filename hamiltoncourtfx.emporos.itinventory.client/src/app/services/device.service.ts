@@ -68,6 +68,21 @@ export class DeviceService implements OnInit {
           console.error("Error posting device: " + error.message, error);
         }
       });
+  }
 
+  update(id: number, device: DeviceInterface) {
+    let newDevice;
+    let errorMessage;
+    this.http.put<DeviceInterface>('/api/Device/' + id, device)
+      .subscribe({
+        next: data => {
+          newDevice = data;
+          console.log("Data received updated");
+        },
+        error: error => {
+          errorMessage = error.message;
+          console.error("Error posting device: " + error.message, error);
+        }
+      });
   }
 }

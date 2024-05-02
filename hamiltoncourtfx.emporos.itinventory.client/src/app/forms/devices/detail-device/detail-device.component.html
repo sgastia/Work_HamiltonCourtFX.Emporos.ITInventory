@@ -1,30 +1,30 @@
 <section>
   <h3>Device detail</h3>
-  <div *ngIf="deviceItem$ | async as deviceItem">
+  <div *ngIf="selectedDevice$ | async as selectedDevice">
     <div>
       <label for="device-type">Device type:  </label>
-      <input type="text" id="device-type" [(ngModel)]="deviceItem.deviceType" placeholder="Device type" readonly />
+      <input type="text" id="deviceType" [formControl]="deviceTypeControl" placeholder="Device type" />
     </div>
     <div>
       <label for="device-description">Description:</label>
-      <input type="text" id="device-description" [(ngModel)]="deviceItem.description" placeholder="Description" readonly />
+      <input type="text" id="deviceDescription" [formControl]="descriptionControl" placeholder="Description" />
     </div>
     <!--
-    <div>
-      <mat-form-field>
-        <mat-label>Device type</mat-label>
-        <input matInput type="text" id="device-type" [(ngModel)]="deviceItem.deviceType" placeholder="Device type" readonly />
-      </mat-form-field>
-    </div>
-    <div>
-      <mat-form-field>
-        <mat-label>Description</mat-label>
-        <input matInput type="text" id="device-description" [(ngModel)]="deviceItem.description" placeholder="Description" readonly />
-      </mat-form-field>
-    </div>
-      -->
+  <div>
+    <mat-form-field>
+      <mat-label>Device type</mat-label>
+      <input matInput type="text" id="device-type" [(ngModel)]="selectedDevice.deviceType" placeholder="Device type" />
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput type="text" id="device-description" [(ngModel)]="selectedDevice.description" placeholder="Description" />
+    </mat-form-field>
+  </div>
+    -->
   </div>
 
-  <!--<button type="button" (click)="Update()">Update</button>-->
+  <button type="button" (click)="update()">Update</button>
   <button type="button" (click)="gotoList()">Back to list</button>
-</section>
+  </section>
